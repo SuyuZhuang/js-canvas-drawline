@@ -11,24 +11,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="canvas"></div>
+    <canvas id="canvas" width="100" height="100"></canvas>
     <script>
-        canvas.onmousemove = (e)=>{
-            console.log(e.clientX)
-            console.log(e.clientY)
-            var divObj = document.createElement('div');
-            divObj.style.height = '6px';
-            divObj.style.width = '6px';
-            divObj.style.position="absolute"
-            divObj.style.left= e.clientX + 'px';
-            divObj.style.top = e.clientY+ 'px';
-            divObj.style.marginLeft = '-3px';
-            divObj.style.marginTop = '-3px';
-            divObj.style.backgroundColor = 'black';
-            divObj.style.borderRadius='50%';
-            canvas.appendChild(divObj);
-        }
-    
+      var canvas = document.getElementById("canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      var ctx = canvas.getContext("2d");
+
+      canvas.onmousemove = e => {
+        ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+      };
     </script>
   </body>
 </html>
