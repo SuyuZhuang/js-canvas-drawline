@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>画板</title>
-</head>
-<body>
-    hi
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script>
+        canvas.onclick = (e)=>{
+            console.log(e.clientX)
+            console.log(e.clientY)
+            var divObj = document.createElement('div');
+            divObj.style.height = '6px';
+            divObj.style.width = '6px';
+            divObj.style.position="absolute"
+            divObj.style.left= e.clientX + 'px';
+            divObj.style.top = e.clientY+ 'px';
+            divObj.style.marginLeft = '-3px';
+            divObj.style.marginTop = '-3px';
+            divObj.style.backgroundColor = 'black';
+            divObj.style.borderRadius='50%';
+            canvas.appendChild(divObj);
+        }
+    
+    </script>
+  </body>
 </html>
